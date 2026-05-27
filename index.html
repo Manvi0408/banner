@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manvi Yadav — GitHub Banner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&family=Fira+Code:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 100%;
+    height: 100%;
+    background: #030510;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .banner {
+    width: 100%;
+    max-width: 1200px;
+    aspect-ratio: 16 / 5;
+    background: #050712;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  /* ── Stars ── */
+  .stars {
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 8%  15%, rgba(255,255,255,0.55) 0%, transparent 100%),
+      radial-gradient(1px 1px at 22% 68%, rgba(255,255,255,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 38%  8%, rgba(255,255,255,0.45) 0%, transparent 100%),
+      radial-gradient(1px 1px at 55% 82%, rgba(255,255,255,0.25) 0%, transparent 100%),
+      radial-gradient(1px 1px at 73% 42%, rgba(255,255,255,0.50) 0%, transparent 100%),
+      radial-gradient(1px 1px at 12% 92%, rgba(255,255,255,0.30) 0%, transparent 100%),
+      radial-gradient(1px 1px at 88% 12%, rgba(255,255,255,0.40) 0%, transparent 100%),
+      radial-gradient(1px 1px at 47% 55%, rgba(255,255,255,0.20) 0%, transparent 100%),
+      radial-gradient(1px 1px at 63% 28%, rgba(255,255,255,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 92% 75%, rgba(255,255,255,0.30) 0%, transparent 100%),
+      radial-gradient(1px 1px at 33% 48%, rgba(255,255,255,0.40) 0%, transparent 100%),
+      radial-gradient(1px 1px at 79% 88%, rgba(255,255,255,0.25) 0%, transparent 100%);
+  }
+
+  /* ── Nebula glows ── */
+  .nebula {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    pointer-events: none;
+  }
+  .nebula-1 { width: 45%; height: 90%; top: -25%; right: -8%;  background: radial-gradient(ellipse, rgba(90,40,200,0.28) 0%, transparent 70%); }
+  .nebula-2 { width: 35%; height: 70%; bottom: -25%; left: 15%; background: radial-gradient(ellipse, rgba(20,70,210,0.22) 0%, transparent 70%); }
+  .nebula-3 { width: 28%; height: 55%; top: 5%;     right: 28%; background: radial-gradient(ellipse, rgba(0,190,190,0.12) 0%, transparent 70%); }
+  .nebula-4 { width: 20%; height: 40%; bottom: 10%; right: 10%; background: radial-gradient(ellipse, rgba(150,60,220,0.15) 0%, transparent 70%); }
+
+  /* ── Grid ── */
+  .grid-lines {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(100,80,220,0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(100,80,220,0.045) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+
+  /* ── Scan line ── */
+  .scan-line {
+    position: absolute;
+    left: 0; right: 0;
+    height: 1.5px;
+    background: linear-gradient(90deg, transparent 0%, rgba(120,80,255,0.5) 30%, rgba(0,220,220,0.4) 60%, transparent 100%);
+    animation: scan 7s linear infinite;
+    pointer-events: none;
+  }
+  @keyframes scan {
+    0%   { top: -2%; opacity: 0; }
+    5%   { opacity: 0.7; }
+    95%  { opacity: 0.5; }
+    100% { top: 102%; opacity: 0; }
+  }
+
+  /* ── Floating words ── */
+  .floating-word {
+    position: absolute;
+    font-family: 'Fira Code', monospace;
+    font-weight: 300;
+    letter-spacing: 0.05em;
+    pointer-events: none;
+    will-change: transform, opacity;
+    white-space: nowrap;
+  }
+
+  /* ── Main text ── */
+  .main-text-block {
+    position: absolute;
+    left: 6%;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+
+  .greeting {
+    font-size: clamp(0.5rem, 1.3vw, 0.85rem);
+    font-weight: 300;
+    color: rgba(180,160,255,0.75);
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin-bottom: 0.25em;
+    font-family: 'Fira Code', monospace;
+  }
+
+  .name {
+    font-size: clamp(1.1rem, 3.8vw, 2.4rem);
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+    text-shadow: 0 0 40px rgba(160,120,255,0.5), 0 0 80px rgba(100,80,200,0.25);
+    margin-bottom: 0.3em;
+  }
+
+  .name .highlight {
+    background: linear-gradient(130deg, #d4baff 0%, #a78bfa 35%, #7c3aed 65%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .divider {
+    width: clamp(35px, 7vw, 90px);
+    height: 1px;
+    background: linear-gradient(90deg, rgba(140,100,255,0.9), rgba(0,210,210,0.6), transparent);
+    margin: 0.35em 0;
+    box-shadow: 0 0 10px rgba(140,100,255,0.35);
+  }
+
+  .subtitle-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    font-size: clamp(0.45rem, 1.3vw, 0.85rem);
+    color: rgba(160,200,255,0.65);
+    font-family: 'Fira Code', monospace;
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    min-height: 1.4em;
+  }
+
+  .cursor {
+    display: inline-block;
+    width: 0.55em;
+    height: 1em;
+    background: rgba(120,180,255,0.85);
+    vertical-align: text-bottom;
+    animation: blink 0.9s step-end infinite;
+    box-shadow: 0 0 8px rgba(120,180,255,0.7);
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+  /* ── Right accent pills ── */
+  .right-accent {
+    position: absolute;
+    right: 4%;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: clamp(3px, 0.7vw, 8px);
+    align-items: flex-end;
+    z-index: 10;
+  }
+
+  .tag-pill {
+    font-family: 'Fira Code', monospace;
+    font-size: clamp(0.3rem, 0.8vw, 0.58rem);
+    font-weight: 300;
+    padding: 0.22em 0.75em;
+    border-radius: 99px;
+    letter-spacing: 0.08em;
+    border: 0.5px solid;
+    white-space: nowrap;
+  }
+  .tag-blue   { color: rgba(130,200,255,0.75); border-color: rgba(130,200,255,0.28); background: rgba(30,80,200,0.12); }
+  .tag-purple { color: rgba(180,140,255,0.75); border-color: rgba(180,140,255,0.28); background: rgba(100,50,200,0.12); }
+  .tag-teal   { color: rgba(80,220,200,0.75);  border-color: rgba(80,220,200,0.28);  background: rgba(20,120,120,0.12); }
+  .tag-amber  { color: rgba(255,190,80,0.7);   border-color: rgba(255,190,80,0.25);  background: rgba(140,80,10,0.12); }
+
+  /* ── Bottom decoration ── */
+  .bottom-line {
+    position: absolute;
+    bottom: 9%;
+    left: 6%;
+    right: 6%;
+    height: 0.5px;
+    background: linear-gradient(90deg, rgba(110,80,230,0.5), rgba(0,190,210,0.35), transparent);
+  }
+
+  .bottom-meta {
+    position: absolute;
+    bottom: 3.5%;
+    left: 6%;
+    font-family: 'Fira Code', monospace;
+    font-size: clamp(0.28rem, 0.65vw, 0.46rem);
+    color: rgba(120,100,200,0.4);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+
+  /* ── Corner bracket decorations ── */
+  .corner {
+    position: absolute;
+    width: clamp(12px, 2vw, 22px);
+    height: clamp(12px, 2vw, 22px);
+    pointer-events: none;
+  }
+  .corner svg { width: 100%; height: 100%; }
+  .corner-tl { top: 8%; left: 2%; }
+  .corner-tr { top: 8%; right: 2%; transform: scaleX(-1); }
+  .corner-bl { bottom: 8%; left: 2%; transform: scaleY(-1); }
+  .corner-br { bottom: 8%; right: 2%; transform: scale(-1); }
+</style>
+</head>
+<body>
+
+<div class="banner" id="banner">
+
+  <div class="stars"></div>
+  <div class="nebula nebula-1"></div>
+  <div class="nebula nebula-2"></div>
+  <div class="nebula nebula-3"></div>
+  <div class="nebula nebula-4"></div>
+  <div class="grid-lines"></div>
+  <div class="scan-line"></div>
+
+  <!-- Floating background words -->
+  <div id="floaters"></div>
+
+  <!-- Corner brackets -->
+  <div class="corner corner-tl"><svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 12V2h10" stroke="rgba(140,100,255,0.45)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+  <div class="corner corner-tr"><svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 12V2h10" stroke="rgba(140,100,255,0.45)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+  <div class="corner corner-bl"><svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 12V2h10" stroke="rgba(140,100,255,0.45)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+  <div class="corner corner-br"><svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 12V2h10" stroke="rgba(140,100,255,0.45)" stroke-width="1.2" stroke-linecap="round"/></svg></div>
+
+  <!-- Main hero text -->
+  <div class="main-text-block">
+    <div class="greeting">// introducing</div>
+    <div class="name">Hi, I am <span class="highlight">Manvi Yadav</span></div>
+    <div class="divider"></div>
+    <div class="subtitle-wrap">
+      <span id="typewriter"></span><span class="cursor"></span>
+    </div>
+  </div>
+
+  <!-- Right skill pills -->
+  <div class="right-accent">
+    <div class="tag-pill tag-purple">System Design</div>
+    <div class="tag-pill tag-blue">Cloud &amp; DevOps</div>
+    <div class="tag-pill tag-teal">AI / ML</div>
+    <div class="tag-pill tag-blue">Data Structures</div>
+    <div class="tag-pill tag-amber">Algorithms</div>
+    <div class="tag-pill tag-purple">Java &amp; C++</div>
+  </div>
+
+  <!-- Bottom decoration -->
+  <div class="bottom-line"></div>
+  <div class="bottom-meta">portfolio · github · open to opportunities</div>
+
+</div>
+
+<script>
+(function () {
+
+  /* ── Floating words config ── */
+  const WORDS = [
+    { text: "Frontend",        size: 1.15, color: [180,160,255], x: 62,  y: 12,  dx: -0.009, dy:  0.005, z: 0.70 },
+    { text: "Backend",         size: 0.90, color: [100,200,255], x: 73,  y: 72,  dx:  0.007, dy: -0.006, z: 0.50 },
+    { text: "AI / ML",         size: 1.30, color: [80, 220,200], x: 79,  y: 36,  dx: -0.006, dy:  0.008, z: 0.90 },
+    { text: "Data Structures", size: 0.72, color: [160,130,255], x: 56,  y: 60,  dx:  0.005, dy:  0.005, z: 0.38 },
+    { text: "Algorithms",      size: 0.88, color: [120,180,255], x: 68,  y: 22,  dx: -0.009, dy: -0.004, z: 0.60 },
+    { text: "System Design",   size: 0.76, color: [200,160,255], x: 83,  y: 56,  dx:  0.006, dy:  0.006, z: 0.42 },
+    { text: "Cloud",           size: 1.05, color: [60, 210,225], x: 58,  y: 83,  dx: -0.008, dy: -0.005, z: 0.68 },
+    { text: "Java",            size: 1.10, color: [255,185,100], x: 75,  y: 86,  dx:  0.007, dy: -0.007, z: 0.78 },
+    { text: "C++",             size: 0.95, color: [100,225,175], x: 89,  y: 16,  dx: -0.005, dy:  0.008, z: 0.55 },
+    { text: "TypeScript",      size: 0.80, color: [130,170,255], x: 93,  y: 64,  dx: -0.007, dy: -0.003, z: 0.40 },
+    { text: "React",           size: 0.92, color: [80, 215,245], x: 86,  y: 44,  dx:  0.005, dy:  0.006, z: 0.52 },
+    { text: "Node.js",         size: 0.80, color: [120,225,120], x: 65,  y: 93,  dx: -0.006, dy: -0.004, z: 0.44 },
+  ];
+
+  const container = document.getElementById('floaters');
+  const state = WORDS.map(w => {
+    const el = document.createElement('div');
+    el.className = 'floating-word';
+    el.textContent = w.text;
+    container.appendChild(el);
+    return { el, ...w, cx: w.x, cy: w.y, phase: Math.random() * Math.PI * 2 };
+  });
+
+  let t = 0;
+  let panAngle = 0;
+
+  function tick() {
+    t        += 0.013;
+    panAngle += 0.016;
+    const panX = Math.sin(panAngle) * 7;
+
+    state.forEach(w => {
+      w.cx += w.dx;
+      w.cy += w.dy;
+      if (w.cx < 50)  { w.cx = 50;  w.dx =  Math.abs(w.dx); }
+      if (w.cx > 100) { w.cx = 100; w.dx = -Math.abs(w.dx); }
+      if (w.cy < 0)   { w.cy = 0;   w.dy =  Math.abs(w.dy); }
+      if (w.cy > 100) { w.cy = 100; w.dy = -Math.abs(w.dy); }
+
+      const breathe = Math.sin(t * 0.75 + w.phase);
+      const alpha   = Math.max(0.08, Math.min(0.75, w.z * 0.52 + 0.13 + breathe * 0.08));
+      const blur    = (1 - w.z) * 2.8;
+      const scale   = 0.72 + w.z * 0.42;
+      const px      = w.cx + panX * (1 - w.z);
+
+      const [r, g, b] = w.color;
+      const basePx    = 14;
+
+      w.el.style.cssText = `
+        left: ${px}%;
+        top: ${w.cy}%;
+        font-size: ${(basePx * w.size).toFixed(1)}px;
+        color: rgba(${r},${g},${b},${alpha.toFixed(2)});
+        filter: blur(${blur.toFixed(1)}px);
+        transform: scale(${scale.toFixed(2)}) translateZ(0);
+        text-shadow: 0 0 14px rgba(${r},${g},${b},${(alpha * 0.7).toFixed(2)});
+      `;
+    });
+
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+
+  /* ── Typewriter ── */
+  const LINES = [
+    "Software Engineer in the making...",
+    "Building the future, one commit at a time.",
+    "Full Stack · AI/ML · System Design",
+  ];
+  let lineIdx = 0, charIdx = 0, deleting = false;
+  const tw = document.getElementById('typewriter');
+
+  function typeStep() {
+    const line = LINES[lineIdx];
+    if (!deleting) {
+      charIdx++;
+      tw.textContent = line.slice(0, charIdx);
+      if (charIdx === line.length) {
+        deleting = true;
+        setTimeout(typeStep, 2600);
+        return;
+      }
+      setTimeout(typeStep, 52 + Math.random() * 38);
+    } else {
+      charIdx--;
+      tw.textContent = line.slice(0, charIdx);
+      if (charIdx === 0) {
+        deleting = false;
+        lineIdx  = (lineIdx + 1) % LINES.length;
+        setTimeout(typeStep, 420);
+        return;
+      }
+      setTimeout(typeStep, 28 + Math.random() * 18);
+    }
+  }
+  setTimeout(typeStep, 900);
+
+})();
+</script>
+
+</body>
+</html>
